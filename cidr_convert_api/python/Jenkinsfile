@@ -14,7 +14,9 @@ pipeline {
     stage('build') {
       steps {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '1850a253-8232-4f05-8c50-f5c8e7b13532', url: 'https://github.com/AlanAaronMartinez/DOTT.git']]])
+            echo 'echo1'
             git credentialsId: '1850a253-8232-4f05-8c50-f5c8e7b13532', url: 'https://github.com/AlanAaronMartinez/DOTT.git'
+            echo 'echo2'
             bat label: 'script', script: 'python ./cidr_convert_api/python/api.py'
       }
     } 
