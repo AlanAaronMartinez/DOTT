@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('SonarQube') {
       steps {
-          echo 'Unit testing'
+          echo 'Unit testing1'
       }
     }
     stage('Unit Test') {
