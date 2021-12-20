@@ -15,6 +15,7 @@ pipeline {
     stage('build') {
       steps {
         git credentialsId: '1850a253-8232-4f05-8c50-f5c8e7b13532', url: 'https://github.com/AlanAaronMartinez/DOTT.git'
+        bat label: 'script', script: 'python api.py'
             echo "Build "
       }
     }
