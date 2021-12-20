@@ -1,1 +1,21 @@
-
+pipeline {
+  agent any
+  stages {
+    stage('SonarQube') {
+      steps {
+          echo 'Unit testing'
+      }
+    }
+    stage('Unit Test') {
+      steps {
+        echo 'Unit testing'
+      }
+    }
+    stage('build') {
+      steps {
+            echo "Build"
+      }
+    }
+   
+  }
+}
