@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('SonarQube') {
       steps {
-          echo 'Unit testing from github'
+       withSonarQubeEnv('sonarcloud') {
+         echo 'sonarcloud'
       }
     }
     stage('Unit Test') {
@@ -13,6 +14,7 @@ pipeline {
     }
     stage('build') {
       steps {
+        git credentialsId: '1850a253-8232-4f05-8c50-f5c8e7b13532', url: 'https://github.com/AlanAaronMartinez/DOTT.git'
             echo "Build "
       }
     }
