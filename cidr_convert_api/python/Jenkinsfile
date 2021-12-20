@@ -4,10 +4,17 @@ pipeline {
     python 'python3'
   }
   stages {
-    stage('SonarQube') {
+     stage('SonarQube') {
       steps {
-         sh 'python version'
-          echo 'Unit testing from github'
+       withSonarQubeEnv('sonarcloud') {
+           sh '''sonar-scanner \
+               -Dsonar.organization=alanaaronmartinez \
+               -Dsonar.projectKey=AlanAaronMartinez_DOTT \
+               -Dsonar.sources=. \
+               -Dsonar.host.url=https://sonarcloud.io
+         '''    
+        echo 'sonarcloud ECHO'
+         
       }
     }
     stage('Unit Test') {
