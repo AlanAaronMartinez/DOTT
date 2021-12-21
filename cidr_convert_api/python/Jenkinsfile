@@ -1,24 +1,22 @@
 pipeline {
   agent any
+  eviroment{
+  SCANNER_HOME= tool sonarc
+  }
   stages {
-     stage('SonarQube') {
+    stage('Static Code Analysis') {
       steps {
-
-           sh '''sonar-scanner \
-               -Dsonar.organization=alanaaronmartinez \
-               -Dsonar.projectKey=AlanAaronMartinez_DOTT \
-               -Dsonar.sources=. \
-               -Dsonar.host.url=https://sonarcloud.io
-         '''    
-        echo 'sonarcloud ECHO'
-         
+        withSonarQubeEnv('sonarqube') {
+        sh '${SCANNER_HOME}/bin/sonar-scanner'
+            }
+        }
       }
-    }
-    stage('Unit Test') {
-      steps {
-        echo 'Unit testing'
+      stage('Unit Test') {
+         steps {
+          echo 'Unit testing'
+               }
       }
-    }
+    
     stage('build') {
       steps {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '1850a253-8232-4f05-8c50-f5c8e7b13532', url: 'https://github.com/AlanAaronMartinez/DOTT.git']]])
