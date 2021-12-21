@@ -7,6 +7,7 @@ pipeline {
     stage('Static Code Analysis') {
       steps {
         withSonarQubeEnv('SonarCloud') {
+        sh 'cd ./cidr_convert_api/python/'
         sh '${SCANNER_HOME}/bin/sonar-scanner'
             }
         }
