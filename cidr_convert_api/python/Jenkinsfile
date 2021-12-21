@@ -1,7 +1,7 @@
 pipeline {
   agent any
-  eviroment{
-  SCANNER_HOME= tool sonarc
+  enviroment{
+  SCANNER_HOME= tool 'sonar'
   }
   stages {
     stage('Static Code Analysis') {
@@ -18,12 +18,7 @@ pipeline {
       }
     
     stage('build') {
-      steps {
-            checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '1850a253-8232-4f05-8c50-f5c8e7b13532', url: 'https://github.com/AlanAaronMartinez/DOTT.git']]])
-            echo 'echo1'
-            git credentialsId: '1850a253-8232-4f05-8c50-f5c8e7b13532', url: 'https://github.com/AlanAaronMartinez/DOTT.git'
-            echo 'echo2'
-            sh label: 'script', script: 'python api.py'
+      steps { 
             echo 'echo3'
       }
     } 
