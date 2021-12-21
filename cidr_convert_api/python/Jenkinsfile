@@ -8,7 +8,6 @@ pipeline {
       steps {
         sh '''
         echo "${SCANNER_HOME}"
-        echo pwd
         '''
         withSonarQubeEnv('SonarCloud') {
         sh 'cd ./cidr_convert_api/python/'
