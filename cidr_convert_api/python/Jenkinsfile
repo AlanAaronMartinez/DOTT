@@ -9,7 +9,7 @@ pipeline {
         sh '''
         echo "${SCANNER_HOME}"
         '''
-        withSonarQubeEnv('SonarCloud') {
+        withSonarQubeEnv('sonarcloud') {
         sh 'pwd'
         sh '${SCANNER_HOME}/bin/sonar-scanner'
             }
