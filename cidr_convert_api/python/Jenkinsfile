@@ -11,7 +11,7 @@ pipeline {
         sh '${SCANNER_HOME}/bin/sonar-scanner \
   -Dsonar.organization=alanaaronmartinez \
   -Dsonar.projectKey=AlanAaronMartinez_DOTT \
-  -Dsonar.sources=. \
+  -Dsonar.sources=./cidr_convert_api/python/ \
   -Dsonar.host.url=https://sonarcloud.io'
 
         
