@@ -1,25 +1,24 @@
 pipeline {
   agent any
-  environment{
-  SCANNER_HOME= tool 'sonar'
+  environment {
+    SCANNER_HOME= tool 'sonar'
   }
   stages {
     stage('Static Code Analysis') {
       steps {
-        withSonarQubeEnv('sonarqube') {
+        withSonarQubeEnv('SonarCloud') {
         sh '${SCANNER_HOME}/bin/sonar-scanner'
             }
         }
       }
       stage('Unit Test') {
          steps {
-          echo 'Unit testing'
-               }
+                 echo 'Unit testing'
+         }
       }
-    
     stage('build') {
       steps { 
-            echo 'echo3'
+             echo 'echo3'
       }
     } 
   }
