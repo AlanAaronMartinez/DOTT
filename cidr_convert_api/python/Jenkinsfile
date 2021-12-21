@@ -1,12 +1,9 @@
 pipeline {
   agent any
-  tools {
-    python 'python3'
-  }
   stages {
      stage('SonarQube') {
       steps {
-       withSonarQubeEnv('sonarcloud') {
+
            sh '''sonar-scanner \
                -Dsonar.organization=alanaaronmartinez \
                -Dsonar.projectKey=AlanAaronMartinez_DOTT \
