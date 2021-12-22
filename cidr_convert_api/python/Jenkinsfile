@@ -24,8 +24,6 @@ pipeline {
            echo 'Unit testing'
            sh ''' python3 --version
            cd ./cidr_convert_api/python/
-           pip3 freeze > requirements.txt
-
            pip3 install -r requirements.txt
            python3 tests.py '''
          }
