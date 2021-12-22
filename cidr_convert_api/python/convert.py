@@ -1,6 +1,7 @@
 # These functions need to be implemented
 import socket
 import struct
+from netaddr import IPAddress
 
 class CidrMaskConvert:
 
@@ -12,6 +13,7 @@ class CidrMaskConvert:
         
 
     def mask_to_cidr(self, val):
+        val = IPAddress(val).netmask_bits()
         return val
 
 class IpValidate:
