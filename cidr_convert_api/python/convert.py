@@ -2,7 +2,7 @@
 import socket
 import struct
 from netaddr import IPAddress
-from IPy import IP
+import re
 
 class CidrMaskConvert:
 
