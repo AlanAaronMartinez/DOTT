@@ -21,7 +21,7 @@ class IpValidate:
 
     def ipv4_validation(self, val):
         try:
-            IP(val).inet_aton(val)
+            IP(val)
             return True
-        except IP(val).error:
+        except:
             return False
