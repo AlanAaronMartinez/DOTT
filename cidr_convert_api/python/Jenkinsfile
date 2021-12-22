@@ -15,7 +15,8 @@ pipeline {
          steps {
 
                  echo 'Unit testing'
-             sh label: 'script', script: 'python api.py'
+                 sh 'cd /var/jenkins_home/workspace/DevOps_Academy_Project/cidr_convert_api/python'
+           sh 'api.py'
          }
       }
     stage('build') {
