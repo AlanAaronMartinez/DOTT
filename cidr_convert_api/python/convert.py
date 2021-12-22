@@ -1,7 +1,7 @@
 # These functions need to be implemented
 import socket
 import struct
-from netaddr import IPAddress
+import netaddr 
 import re
 import ipaddress
 
