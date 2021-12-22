@@ -28,6 +28,8 @@ pipeline {
          steps {
            echo 'Unit testing'
            sh 'echo "${python}" '
+           sh 'python -version '
+
          }
       }
     stage('build') {
