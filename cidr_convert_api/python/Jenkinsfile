@@ -26,7 +26,7 @@ pipeline {
          steps {
                  echo 'Unit testing'
            sh '''
-           python version
+           python --version
            '''
          }
       }
