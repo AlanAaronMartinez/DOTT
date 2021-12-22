@@ -24,9 +24,6 @@ pipeline {
          steps {
                  echo 'Unit testing'
            sh '''
-           cd /var/jenkins_home/workspace/DevOps_Academy_Project/cidr_convert_api/python/
-           pwd
-           ls
            python api.py
            '''
          }
