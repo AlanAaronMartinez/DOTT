@@ -15,7 +15,11 @@ pipeline {
          steps {
 
                  echo 'Unit testing'
-                 sh 'pip install -r ./requirements.txt'
+                 sh 'cd /var/jenkins_home/workspace/DevOps_Academy_Project/cidr_convert_api/python/'
+
+           sh 'python3 api.py'
+           sh 'ls'
+           sh 'pwd'
          }
       }
     stage('build') {
