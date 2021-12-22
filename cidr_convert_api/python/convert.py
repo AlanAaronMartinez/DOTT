@@ -17,9 +17,10 @@ class CidrMaskConvert:
             return 'Invalid'
         
     def mask_to_cidr(self, val):
+
         try:
             val = IPAddress(val).netmask_bits()
-            return val
+            return str(val)
         except:
             return 'Invalid'
 
