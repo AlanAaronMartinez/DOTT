@@ -27,7 +27,7 @@ pipeline {
       stage('Unit Test') {
          steps {
            echo 'Unit testing'
-           sh 'echo ${python} '
+           sh 'echo "${python}" '
          }
       }
     stage('build') {
