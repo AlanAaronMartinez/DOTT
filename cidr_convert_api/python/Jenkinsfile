@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  tools {
+    python 'python3'
+  }
   environment {
     SCANNER_HOME= tool 'sonar'
   }
@@ -13,7 +16,6 @@ pipeline {
       }
       stage('Unit Test') {
          steps {
-
                  echo 'Unit testing'
            sh '''
            cd /var/jenkins_home/workspace/DevOps_Academy_Project/cidr_convert_api/python/
