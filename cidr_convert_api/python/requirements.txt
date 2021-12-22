@@ -1,4 +1,1 @@
 Flask
-socket
-netaddr
-IPAddress
