@@ -1,8 +1,10 @@
 pipeline {
   agent any
+    tools {
+    python 'python1.16.4'
+  }
   environment {
     SCANNER_HOME= tool 'sonar'
-    python = tool 'python'
   }
   stages {
     stage('Static Code Analysis') {
