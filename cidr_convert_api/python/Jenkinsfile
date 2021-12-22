@@ -20,7 +20,12 @@ pipeline {
       }
     } 
       stage('Unit Test') {
-         steps {
+         agent {
+                docker {
+                    image 'python' 
+                }
+            }
+         steps {  
            echo 'Unit testing'
            sh ''' python3 --version
            cd ./cidr_convert_api/python/
