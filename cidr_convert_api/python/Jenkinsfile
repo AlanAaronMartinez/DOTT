@@ -15,11 +15,12 @@ pipeline {
          steps {
 
                  echo 'Unit testing'
-                 sh 'cd /var/jenkins_home/workspace/DevOps_Academy_Project/cidr_convert_api/python/'
-           sh 'pwd' 
-
-           sh 'ls' 
-           sh 'python3 api.py'
+           sh '''
+           cd /var/jenkins_home/workspace/DevOps_Academy_Project/cidr_convert_api/python/
+           pwd
+           ls
+           python3 api.py
+           '''
          }
       }
     stage('build') {
