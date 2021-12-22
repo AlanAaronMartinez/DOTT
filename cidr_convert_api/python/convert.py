@@ -8,7 +8,7 @@ import ipaddress
 class CidrMaskConvert:
 
     def cidr_to_mask(self, val):
-        if (val >= 1 and  val <= 32 )
+        if val >= 1 and  val <= 32 
             host_bits = 32 - int(val)
             val = socket.inet_ntoa(struct.pack('!I', (1 << 32) - (1 << host_bits)))
             print('LINEA: ',self, val)
