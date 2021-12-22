@@ -1,12 +1,7 @@
 pipeline {
   agent any
-    /* tools {
-    python 'python'
-  } */
   environment {
     SCANNER_HOME= tool 'sonar'
-    python= tool 'python'
-
   }
   stages {
     stage('Static Code Analysis') {
@@ -27,9 +22,8 @@ pipeline {
       stage('Unit Test') {
          steps {
            echo 'Unit testing'
-           sh 'echo "${python}" '
-           sh 'python -version '
-
+           sh 'python3 --version'
+           sh 'python3 ./cidr_convert_api/python/api.py '
          }
       }
     stage('build') {
