@@ -1,9 +1,9 @@
 # These functions need to be implemented
 import socket
 import struct
-from netaddr import IPAddress
 import re
 import ipaddress
+from netaddr import ipaddress
 
 class CidrMaskConvert:
 
