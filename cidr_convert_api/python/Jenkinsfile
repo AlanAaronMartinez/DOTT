@@ -22,8 +22,10 @@ pipeline {
       stage('Unit Test') {
          steps {
            echo 'Unit testing'
-           sh 'python3 --version'
-           sh 'python3 ./cidr_convert_api/python/api.py '
+           sh ''' python3 --version
+           cd ./cidr_convert_api/python/
+           pip install -r requirements.txt
+           python3 api.py '''
          }
       }
     stage('build') {
