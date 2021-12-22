@@ -1,8 +1,8 @@
 pipeline {
   agent any
-    tools {
+/*     tools {
     python 'python3'
-  }
+  } */
   environment {
     SCANNER_HOME= tool 'sonar'
   }
