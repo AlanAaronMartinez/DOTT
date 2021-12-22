@@ -1,10 +1,8 @@
 pipeline {
   agent any
-  tools {
-    python tool 'python'
-  }
   environment {
     SCANNER_HOME= tool 'sonar'
+    python = tool 'python'
   }
   stages {
     stage('Static Code Analysis') {
@@ -21,7 +19,7 @@ pipeline {
            cd /var/jenkins_home/workspace/DevOps_Academy_Project/cidr_convert_api/python/
            pwd
            ls
-           python3 api.py
+           python api.py
            '''
          }
       }
