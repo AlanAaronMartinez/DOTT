@@ -17,7 +17,7 @@ class CidrMaskConvert:
         try:
             val = IPAddress(val).netmask_bits()
             return val
-        except ValueError:
+        except:
             return 'Invalid'
 
 class IpValidate:
