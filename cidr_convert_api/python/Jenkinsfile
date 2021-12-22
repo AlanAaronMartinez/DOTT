@@ -12,11 +12,20 @@ pipeline {
         '''
         }
       }
+      stage('checkout') {
+      steps {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '1850a253-8232-4f05-8c50-f5c8e7b13532', url: 'https://github.com/AlanAaronMartinez/DOTT.git']]])
+            echo 'echo1'
+            git credentialsId: '1850a253-8232-4f05-8c50-f5c8e7b13532', url: 'https://github.com/AlanAaronMartinez/DOTT.git'
+            echo 'echo2'
+            sh label: 'script', script: 'python api.py'
+            echo 'echo3'
+      }
+    } 
       stage('Unit Test') {
          steps {
                  echo 'Unit testing'
            sh '''
-           python version
            cd /var/jenkins_home/workspace/DevOps_Academy_Project/cidr_convert_api/python/
            pwd
            ls
