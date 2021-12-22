@@ -20,8 +20,6 @@ class CidrMaskConvert:
 class IpValidate:
 
     def ipv4_validation(self, val):
-        try:
-            IP(val)
-            return True
-        except:
-            return False
+        if re.match(r'^((\d{​​1,2}​​|1\d{​​2}​​|2[0-4]\d|25[0-5])\.){​​3}​​(\d{​​1,2}​​|1\d{​​2}​​|2[0-4]\d|25[0-5])$', val):  
+            return True  
+        return False
