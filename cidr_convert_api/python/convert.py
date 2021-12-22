@@ -13,7 +13,6 @@ class CidrMaskConvert:
         val = socket.inet_ntoa(struct.pack('!I', (1 << 32) - (1 << host_bits)))
         return val
         
-
     def mask_to_cidr(self, val):
         val = IPAddress(val).netmask_bits()
         return val
