@@ -2,7 +2,6 @@
 import socket
 import struct
 from netaddr import IPAddress
-import socket
 
 
 class CidrMaskConvert:
@@ -23,6 +22,6 @@ class IpValidate:
     def ipv4_validation(self, val):
         try:
             socket.inet_aton(val)
-            return true
+            return True
         except socket.error:
-            return false
+            return False
