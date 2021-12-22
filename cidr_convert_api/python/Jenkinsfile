@@ -21,14 +21,12 @@ pipeline {
       }
     } 
       stage('Unit Test') {
-        dir('sources') {
          steps {
                  echo 'Unit testing'
            sh '''
-           python api.py
+           python3 api.py
            '''
          }
-      }
       }
     stage('build') {
       steps { 
