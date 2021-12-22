@@ -8,14 +8,17 @@ import ipaddress
 class CidrMaskConvert:
 
     def cidr_to_mask(self, val):
-        print('LINEA: ',self, val)
         host_bits = 32 - int(val)
         val = socket.inet_ntoa(struct.pack('!I', (1 << 32) - (1 << host_bits)))
-        return val
+        print('LINEA: ',self, val)
+        return str(val)
         
     def mask_to_cidr(self, val):
-        val = IPAddress(val).netmask_bits()
-        return val
+        try:
+            val = IPAddress(val).netmask_bits()
+            return val
+        except ValueError:
+            return 'Invalid'
 
 class IpValidate:
 
