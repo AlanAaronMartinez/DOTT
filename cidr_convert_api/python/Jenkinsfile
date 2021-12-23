@@ -30,7 +30,7 @@ pipeline {
         steps { 
           script {
             try {
-               sh '''
+               sh ''' 
                cd ./cidr_convert_api/python/
                pylint *.py --disable=missing-docstring
                '''
