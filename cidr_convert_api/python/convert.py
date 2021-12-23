@@ -1,7 +1,6 @@
 # These functions need to be implemented
 import socket
 import struct
-import re
 import ipaddress
 from netaddr import IPAddress
 
@@ -22,7 +21,7 @@ class CidrMaskConvert:
                 return str(val)
             except:
                 return 'Invalid'
-        else: 
+        else:
             return 'Invalid'
 
     def ipv4_mask_len(self, val):
@@ -37,7 +36,6 @@ class CidrMaskConvert:
         while m:
             m >>= 1
             right0bits += 1
-
         # Verify that all the bits to the left are 1's
         if mask | ((1 << right0bits) - 1) != 0xffffffff:
            return False
@@ -46,8 +44,8 @@ class CidrMaskConvert:
 class IpValidate:
 
     def ipv4_validation(self, val):
-        try: 
-            ip = ipaddress.ip_address(val) 
+        try:
+            ip = ipaddress.ip_address(val)
             return True
-        except ValueError: 
+        except ValueError:
             return False
