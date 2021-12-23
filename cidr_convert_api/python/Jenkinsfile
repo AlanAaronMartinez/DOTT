@@ -9,10 +9,10 @@ pipeline {
         sh '''
         echo "${SCANNER_HOME}"
         '''
-        withSonarQubeEnv('SonarCloud') {
+    /*     withSonarQubeEnv('SonarCloud') {
         sh 'cd ./cidr_convert_api/python/'
         sh '${SCANNER_HOME}/bin/sonar-scanner'
-            }
+            } */
         }
       }
       stage('Unit Test') {
@@ -28,7 +28,7 @@ pipeline {
         steps { 
              sh '''
              cd ./cidr_convert_api/python/
-             pylint /*.py --disable=missing-docstring
+             pylint *.py --disable=missing-docstring
              autopep8 *.py
              '''
         }
