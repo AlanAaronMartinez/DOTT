@@ -32,9 +32,9 @@ pipeline {
             try {
                sh '''
                cd ./cidr_convert_api/python/
-               autopep8 -i -r .
                pylint *.py 
                '''
+              /*  autopep8 -i -r . */
             } catch (Exception e) {
                echo 'Se ejecuto el linteo pero ocurrio un error. ERROR: ' + e.toString()
             }
