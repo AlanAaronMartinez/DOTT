@@ -20,7 +20,7 @@ pipeline {
                 docker {
                     image 'python' 
                 }
-            } */
+            }   */
          steps {  
            echo 'Unit testing'
            sh ''' python3 --version
