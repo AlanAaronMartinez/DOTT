@@ -29,6 +29,13 @@ pipeline {
            python3 tests.py '''
          }
       }
+      stage('lint') {
+      steps { 
+             sh '''
+             cd ./cidr_convert_api/python/
+             pylint .
+             '''
+      }
     stage('build') {
       steps { 
              echo 'echo3'
