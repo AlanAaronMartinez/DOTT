@@ -26,3 +26,4 @@ six==1.16.0
 urllib3==1.26.5
 Werkzeug==2.0.2
 zipp==1.0.0
+autopep8==1.6.0
