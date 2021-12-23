@@ -26,6 +26,7 @@ pipeline {
       }
       stage('lint') {
         steps { 
+          script {
             try {
                sh '''
                cd ./cidr_convert_api/python/
@@ -34,6 +35,7 @@ pipeline {
             } catch (Exception e) {
                echo 'Se ejecuto el linteo pero ocurrio un error: ' + e.toString()
             }
+          }
         }
       }
     stage('build') {
