@@ -33,7 +33,7 @@ pipeline {
         steps { 
              sh '''
              cd ./cidr_convert_api/python/
-             pylint .
+             pylint *.py
              '''
         }
       }
