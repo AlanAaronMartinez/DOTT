@@ -28,7 +28,7 @@ pipeline {
         steps { 
              sh '''
              cd ./cidr_convert_api/python/
-             autopep8  *.py
+             autopep8  convert.py
              pylint *.py 
              '''
         }
