@@ -43,7 +43,7 @@ pipeline {
       stage('Build Image') { 
         steps{
           script {
-            
+            sh 'pwd'
             dockerImage = docker.build("${registry}", "-f ./cidr_convert_api/python/Dockerfile .") 
           }
         }
