@@ -2,6 +2,8 @@ pipeline {
   agent any
   environment {
     SCANNER_HOME= tool 'sonar'
+    registry = "alanmtzc/devops_project"
+    registryCredential = 'docker'
   }
   stages {
     stage('Static Code Analysis') {
@@ -38,10 +40,26 @@ pipeline {
           }
         }
       }
-    stage('build') {
-      steps { 
-             echo 'echo3'
+      stage('Build Image') { 
+        steps{
+          script {
+            dockerImage = docker.build registry 
+          }
+        }
       }
-    } 
+      stage('Deploy Image') {
+       steps{
+         script {
+           docker.withRegistry( '', registryCredential ) {
+               dockerImage.push()
+           }
+         }
+       }
+      }
+      stage('Remove Unused docker image') {
+        steps{
+         sh "docker rmi $registry"
+       }
+     }
   }
 }
