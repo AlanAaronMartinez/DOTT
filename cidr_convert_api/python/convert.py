@@ -26,23 +26,23 @@ class CidrMaskConvert:
             return 'Invalid'
 
     def ipv4_mask_len(val):
-    a, b, c, d = (int(octet) for octet in val.split("."))
-    mask = a << 24 | b << 16 | c << 8 | d
-    if mask == 0:
-        return False
-    # Count the number of consecutive 0 bits at the right.
-    # https://wiki.python.org/moin/BitManipulation#lowestSet.28.29
-    m = mask & -mask
-    right0bits = -1
-    while m:
-        m >>= 1
-        right0bits += 1
-
-    # Verify that all the bits to the left are 1's
-    if mask | ((1 << right0bits) - 1) != 0xffffffff:
-        raise ValueError:
+        a, b, c, d = (int(octet) for octet in val.split("."))
+        mask = a << 24 | b << 16 | c << 8 | d
+        if mask == 0:
             return False
-    return True
+        # Count the number of consecutive 0 bits at the right.
+        # https://wiki.python.org/moin/BitManipulation#lowestSet.28.29
+        m = mask & -mask
+        right0bits = -1
+        while m:
+            m >>= 1
+            right0bits += 1
+
+        # Verify that all the bits to the left are 1's
+        if mask | ((1 << right0bits) - 1) != 0xffffffff:
+            raise ValueError:
+                return False
+        return True
 
 class IpValidate:
 
