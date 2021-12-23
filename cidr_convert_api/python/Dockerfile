@@ -3,8 +3,8 @@ FROM python:3-alpine
 WORKDIR /app
 
 COPY ./cidr_convert_api/python/requirements.txt /app
-RUN pip install cloud-init
-RUN pip install -r requirements.txt
+RUN pip3 install cloud-init
+RUN pip3 install -r requirements.txt
 
 COPY . .
 CMD ["ash", "-c", "python api.py"]
