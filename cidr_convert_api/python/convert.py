@@ -40,8 +40,7 @@ class CidrMaskConvert:
 
         # Verify that all the bits to the left are 1's
         if mask | ((1 << right0bits) - 1) != 0xffffffff:
-            raise ValueError:
-                return False
+           return False
         return True
 
 class IpValidate:
