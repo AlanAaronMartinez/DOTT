@@ -44,7 +44,7 @@ pipeline {
         steps{
           script {
             sh 'cd ./cidr_convert_api/python/'
-            dockerImage = docker.build "${registry} -f ./cidr_convert_api/python/" 
+            dockerImage = docker.build "${registry} -f ./cidr_convert_api/python/ ." 
           }
         }
       }
