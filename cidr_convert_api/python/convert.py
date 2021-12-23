@@ -16,7 +16,7 @@ class CidrMaskConvert:
             return 'Invalid'
         
     def mask_to_cidr(self, val):
-        if val != '0.0.0.0' and IpValidate.ipv4_validation(val) == true:
+        if val != '0.0.0.0' and IpValidate.ipv4_validation(self,val) == true:
             try:
                 val = IPAddress(val).netmask_bits()
                 return str(val)
