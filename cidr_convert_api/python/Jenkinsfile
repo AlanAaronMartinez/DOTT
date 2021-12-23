@@ -11,10 +11,10 @@ pipeline {
         sh '''
         echo "${SCANNER_HOME}"
         '''
-    /*     withSonarQubeEnv('SonarCloud') {
+        withSonarQubeEnv('SonarCloud') {
         sh 'cd ./cidr_convert_api/python/'
         sh '${SCANNER_HOME}/bin/sonar-scanner'
-            } */
+            }
         }
       }
       stage('Unit Test') {
@@ -30,17 +30,17 @@ pipeline {
         steps { 
           script {
             try {
-              /*  sh '''
+               sh '''
                cd ./cidr_convert_api/python/
                pylint *.py 
-               ''' */
+               '''
             } catch (Exception e) {
                echo 'Se ejecuto el linteo pero ocurrio un error: ' + e.toString()
             }
           }
         }
       }
-      stage('Build Image') { 
+      stage('Build Docker Image') { 
         steps{
           script {
             sh '''
@@ -52,7 +52,7 @@ pipeline {
           }
         }
       }
-      stage('Deploy Image') {
+      stage('Deploy Docker Image') {
        steps{
          script {
            docker.withRegistry( '', registryCredential ) {
