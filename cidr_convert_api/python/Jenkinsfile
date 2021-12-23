@@ -25,16 +25,15 @@ pipeline {
          }
       }
       stage('lint') {
-
         steps { 
-          try {
-            sh '''
-             cd ./cidr_convert_api/python/
-             pylint *.py 
-             '''
-          } catch (Exception e) {
-              echo 'Se ejecuto el linteo pero ocurrio un error: ' + e.toString()
-          }
+            try {
+               sh '''
+               cd ./cidr_convert_api/python/
+               pylint *.py 
+               '''
+            } catch (Exception e) {
+               echo 'Se ejecuto el linteo pero ocurrio un error: ' + e.toString()
+            }
 
              
 
