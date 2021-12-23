@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY . /cidr_convert_api/python/
 CMD ["ash", "-c", "python api.py"]
 # docker build -t pym .
 # docker run -ti -p 8000:8000 pym
