@@ -34,9 +34,6 @@ pipeline {
             } catch (Exception e) {
                echo 'Se ejecuto el linteo pero ocurrio un error: ' + e.toString()
             }
-
-             
-
         }
       }
     stage('build') {
