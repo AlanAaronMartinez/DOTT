@@ -48,7 +48,7 @@ pipeline {
             pwd
             ls
             '''
-            dockerImage = docker.build("${registry}", "-f ./Dockerfile .") 
+            dockerImage = docker.build("${registry}", "-f ./cidr_convert_api/python/Dockerfile .") 
           }
         }
       }
