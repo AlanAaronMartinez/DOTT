@@ -17,15 +17,6 @@ pipeline {
             }
         }
       }
-      stage('Unit Test') {
-         steps {  
-           echo 'Unit testing'
-           sh ''' python3 --version
-           cd ./cidr_convert_api/python/
-           pip install -r requirements.txt
-           python3 tests.py '''
-         }
-      }
       stage('lint') {
         steps { 
           script {
@@ -40,6 +31,15 @@ pipeline {
             }
           }
         }
+      }
+      stage('Unit Test') {
+         steps {  
+           echo 'Unit testing'
+           sh ''' python3 --version
+           cd ./cidr_convert_api/python/
+           pip install -r requirements.txt
+           python3 tests.py '''
+         }
       }
       stage('Build Docker Image') { 
         steps{
