@@ -1,7 +1,7 @@
 FROM python:3-alpine
 
-WORKDIR ./cidr_convert_api/python/
-
+WORKDIR /app
+RUN pwd
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
