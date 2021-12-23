@@ -32,7 +32,7 @@ pipeline {
             try {
                sh '''
                cd ./cidr_convert_api/python/
-               pylint *.py 
+               pylint *.py --disable=missing-docstring
                '''
               /*  autopep8 -i -r . no funciono */
             } catch (Exception e) {
