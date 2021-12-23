@@ -18,7 +18,7 @@ pipeline {
       stage('Unit Test') {
       /*   agent {
                 docker {
-                    image 'python' 
+                  image 'python' 
                 }
             }   */
          steps {  
