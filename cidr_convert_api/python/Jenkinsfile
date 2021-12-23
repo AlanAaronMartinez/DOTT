@@ -29,7 +29,7 @@ pipeline {
              sh '''
              cd ./cidr_convert_api/python/
              pip install --upgrade autopep8
-             autopep8 *.py
+             autopep8 --aggressive *.py
              pylint *.py 
              '''
         }
