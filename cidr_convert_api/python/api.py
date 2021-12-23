@@ -3,8 +3,8 @@ from flask import jsonify
 from flask import request
 from convert import *
 
-app = Flask(__name__)
-convert = CidrMaskConvert()
+app = Flask(__name__)          
+convert = CidrMaskConvert()             
 validate = IpValidate()
 
 # Just a health check
